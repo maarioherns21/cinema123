@@ -1,4 +1,15 @@
 <%- include('../partials/Header') %> 
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+
+    <form id="new-form" action="/movies" method="POST">
+        <input type="text" name="movieName" placeholder="Movie Name" >
+        <textarea name="movieInfo" placeholder="Movie info" ></textarea>
+        <input type="text" name="movieClass" placeholder="Movie Class" >
+        <input type="number" name="yearRelease" placeholder="year Release" >
+        <input type="number" name="runTime" placeholder="Run time" >
+        <input type="url" name="url" placeholder="add image url">
+        <input class="button" type="submit" value="Add Movie">
+    </form>
 <%- include('../partials/Footer') %>

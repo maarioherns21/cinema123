@@ -1,4 +1,9 @@
 <%- include('../partials/Header') %> 
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+    <% movies.forEach(function(m) { %> 
+        <image src= "<%= m.url %> " width="400" height="450">
+            <h5><%= m.movieName %></h5>
+            <a href="/movies/<%= m._id %>"><button type="button" class="button">Details</button></a>
+        <% }); %>  
 <%- include('../partials/Footer') %>
