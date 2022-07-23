@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/public/stylesheets/style.css" />
-  <title>Document</title>
+  <title><%= title %></title>
 </head>
 <body>
   <nav>
@@ -19,7 +19,6 @@
       <li>
         <a href="/movies">Movies</a>
       </li>
-      
       <% if (user) { %>
         <li>
         <a href="/movies/addMovie">Add Movies</a>
@@ -35,4 +34,3 @@
     <% } %>
   </nav>
   <main>
-
