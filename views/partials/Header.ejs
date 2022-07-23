@@ -19,10 +19,11 @@
       <li>
         <a href="/movies">Movies</a>
       </li>
-      <li>
+      
+      <% if (user) { %>
+        <li>
         <a href="/movies/addMovie">Add Movies</a>
       </li>
-      <% if (user) { %>
       <li>
       <a href="/logout">LOG OUT</a>
       </li>
