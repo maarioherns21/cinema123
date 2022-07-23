@@ -1,3 +1,4 @@
+const movie = require("../models/movie");
 const Movie = require("../models/movie");
 
 module.exports = {
@@ -41,3 +42,49 @@ function createMovie(req, res) {
     res.redirect(`/movies/${movie._id}`);
   });
 }
+
+
+
+// function deleteMovie (req, res, next ){
+
+//   Movie.findOne({'movie._id': req.params.id} , function (err, movieIndex) {
+//     console.log(req.params.id)
+//     const movie = movieIndex(req.params.id)
+  
+//     movie.remove()
+
+
+//     movieIndex.save(function(err) {
+//       if(err) next(err); // next(err) passes it to the express generator err handler
+// 			res.redirect(`/movies`)
+//     })
+
+//   })
+// }
+
+
+
+
+
+
+// function deleteMovie(req, res, next) {
+//    const movieIndex = getMovieIndex(req.params.id)
+   
+//   console.log(req.params.id)
+//    if( movieIndex === -1)
+//    return  res.redirect("movies/addMovie");
+   
+//   movie.splice(movieIndex , 1) 
+//   res.redirect('/movies')
+// }
+
+
+
+// router.delete('/users/:userId', (req, res) => {
+//   const userIndex = getUserIndex(req.params.userId)
+ 
+//   if (userIndex === -1) return res.status(404).json({})
+ 
+//   users.splice(userIndex, 1)
+//   res.json(users)
+//  })

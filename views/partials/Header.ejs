@@ -22,8 +22,16 @@
       <li>
         <a href="/movies/addMovie">Add Movies</a>
       </li>
-    </ul>
+      <% if (user) { %>
+      <li>
+      <a href="/logout">LOG OUT</a>
+      </li>
+      <% } else { %>
+        <li>
+        <a href="/auth/google" class="login">LOG IN</a>
+     </li>
+      </ul>
+    <% } %>
   </nav>
-
   <main>
 

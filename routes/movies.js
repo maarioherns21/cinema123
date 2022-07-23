@@ -1,6 +1,7 @@
 const express = require('express');
-const router =  express.Router();
-const moviesCtrl =  require("../controllers/movies")
+const router = express.Router();
+const moviesCtrl = require('../controllers/movies');
+const isLoggedIn = require('../config/auth')
 
 
 router.get('/', moviesCtrl.allMovies)
@@ -9,7 +10,7 @@ router.get('/', moviesCtrl.allMovies)
 //     res.render( "movies/allMovies", {title: "Movies"})
 // }
 
-router.get("/addmovie", moviesCtrl.addMovie)
+router.get("/addmovie",isLoggedIn ,moviesCtrl.addMovie)
 //  function(req,res, next) {
 //     res.render('movies/addMovie' , {title: "AddMovie"})
 // })
@@ -19,6 +20,9 @@ router.get("/:id" , moviesCtrl.movieDetails)
 // }
 
 router.post("/", moviesCtrl.createMovie)
+
+
+// router.delete("/:id", moviesCtrl.deleteMovie)
 
 
 module.exports = router

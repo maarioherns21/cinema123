@@ -1,13 +1,14 @@
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb+srv://maarioherns21:94621Mar@cluster0.h9zud.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+// replace your database connection string here
+mongoose.connect(process.env.DATABASE_URL,{ 
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 const db = mongoose.connection;
 
-db.on("connected", function () {
-    console.log(`Connected to MongoDB at ${db.host}:${db.port}`);
-  });
-  
+// database connection event
+db.on('connected', function () {
+  console.log(`Mongoose connected to: ${db.host}:${db.port}`);
+});
