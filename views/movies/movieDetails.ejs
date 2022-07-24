@@ -1,67 +1,88 @@
 <%- include('../partials/Header') %> 
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-<h1><%= movie.movieName %> </h1>
-<h1><%= movie.movieInfo %> </h1>
-<h1><%= movie.movieClass %> </h1>
-<h1><%= movie.yearRelease %> </h1>
-<h1><%= movie.runTime %> </h1>
-<image src= "<%= movie.url %> "  max-width= "500px" Max-height="600">
-
+    <div class="container px-4 ">
+        <br><br>
+        <div class="container-fliud">
+            <div class="wrapper row">
+                <div class="preview col-md-6">	
+                    <div class="preview-pic tab-content">
+                      <div class="tab-pane active"> <image src="<%= movie.url %> " width= "450px" height="500px"></div>
+                    </div>			
+                </div>
+                <div class="details col-md-6">
+                    <br>
+                    <h2 class="product-title"><%= movie.movieName %></h2>
+                    <p class="product-description"><%= movie.movieInfo %></p>
+                    <h4 class="price">time: <span><%= movie.runTime %>hrs </span></h4>
+                    <h5 class="sizes">Year:<h6><span><%= movie.yearRelease %></span></h6></h5>
+                    <h5 class="sizes">Rating:<h6><span><%= movie.movieClass %> </span></h6></h5>
+                </div>
+            </div>
+        </div>
+</div>
+<br><br>
     
 <br><br>
-<h2>Reviews</h2>
+<br><br>
+<div class="nav nav-masthead justify-content-center pad ">
 <% if (user) { %> 
 <form id="add-review-form" method="POST" action="/movies/<%= movie._id %>/reviews">
-  <label>Review:</label>
-  <textarea name="content"></textarea>
-  <label>Rating:</label>
-  <select name="rating">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <input type="submit" value="Add Review">
+<textarea class="animated" cols="40" name="content" placeholder="Enter your review here..." rows="3"></textarea>
+<label></label>
+<label></label>
+<br>
+<label>Rating:</label>
+<select name="rating">
+  <option value="1">⭐</option>
+  <option value="2">⭐⭐</option>
+  <option value="3">⭐⭐⭐</option>
+  <option value="4">⭐⭐⭐⭐</option>
+  <option value="5">⭐⭐⭐⭐⭐</option>
+</select>
+<br><br>
+<input class="button" type="submit" value=" Add Review ">
 </form>
 <% } %> 
-
-
+</div>
+<br>
+<div class="nav nav-masthead justify-content-center">
 <% if (movie.reviews.length) { %>
-  <table>
-    <thead>
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Date</th>
+      <th>Review</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let total = 0 %>
+    <% movie.reviews.forEach(function(r) { %>
+      <% total += r.rating %>
       <tr>
-        <th>Date</th>
-        <th>Review</th>
-        <th>Rating</th>
+        <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
+        <td><%= r.createdAt.toLocaleDateString() %></td>
+        <td><%= r.content %></td>
+        <td><%= r.rating %></td>
+        <!-- Add this td -->
+        <td>
+          <% if (user && user._id.equals(r.user)) { %>
+            <form action="/movies/<%= r._id %>?_method=DELETE" method="POST">
+              <button type="submit">X</button>
+            </form>
+          <% } %>
       </tr>
-    </thead>
-    <tbody>
-      <% let total = 0 %>
-      <% movie.reviews.forEach(function(r) { %>
-        <% total += r.rating %>
-        <tr>
-          <td class="review-user"><img alt="avatar" src="<%= r.userAvatar %>"><%= r.userName %></td>
-          <td><%= r.createdAt.toLocaleDateString() %></td>
-          <td><%= r.content %></td>
-          <td><%= r.rating %></td>
-          <!-- Add this td -->
-          <td>
-            <% if (user && user._id.equals(r.user)) { %>
-              <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
-                <button type="submit">X</button>
-              </form>
-            <% } %>
-        </tr>
-      <% }); %>
-      <tr>
-        <td colspan="2"></td>
-        <td><strong><%= (total / movie.reviews.length).toFixed(1) %></strong></td>
-      </tr>
-    </tbody>
-  </table>
+    <% }); %>
+    <tr>
+      <td></td>
+      <td colspan="2"></td>
+      <td><strong><%= (total / movie.reviews.length).toFixed(1) %></strong></td>
+    </tr>
+  </tbody>
+</table>
 <% } else { %>
-  <h5>No Reviews Yet</h5>
+<h5>No Reviews Yet</h5>
 <% } %>
+</div>
+<br><br>
 <%- include('../partials/Footer') %>

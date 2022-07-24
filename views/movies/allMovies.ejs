@@ -1,11 +1,38 @@
 <%- include('../partials/Header') %>
-<h1><%= title %></h1>
-<p>Welcome to <%= title %></p>
-<% movies.forEach(function(m) { %>
-<image src="<%= m.url %> " width="400" height="450">
-  <h5><%= m.movieName %></h5>
-  <div>
-    <a href="/movies/<%= m._id %>"><button type="button" class="button">Details</button></a>
-  </div>
-  <% }); %> <%- include('../partials/Footer') %>
-</image>
+<div class="top">
+	<div class="columns">
+		<div class="column is-full featured_wrapper p-0">
+			<img src="https://raw.githubusercontent.com/brixiobodino/coffeholic/main/banner.jpg" class="featured">
+			<div class="title_wrapper">
+				<span class="has-text-white">Trending Today</span>
+				<h1 class="title is-1 has-text-white">The Untold Story of the great Lorem Ipsum</h1>
+				<button class="button is-medium">Watch It Now</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="columns is-multiline p-0 pt-6 last">
+        <div class="column is-full">
+			<h2 class="has-text-white">Collection</h2>
+		</div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+            <% movies.forEach(function(m) { %>
+                <div class="col pad">
+                    <div class="">
+
+                    <div class="">
+                        <image src= "<%= m.url %> "  width="260" height="280">
+            
+                 <h2><%= m.movieName %></h2>
+                <a href="/movies/<%= m._id %>"><button type="button" class="button">Details</button></a>
+              </div>
+            </div>  
+            </div>
+                <% }); %>
+            </div>
+	</div>
+</div>
+
+  <%- include('../partials/Footer') %>
+
