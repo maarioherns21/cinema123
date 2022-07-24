@@ -1,4 +1,11 @@
 <%- include('../partials/Header') %>
+
+<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+  <div class="w3-display-middle" style="white-space:nowrap;">
+    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">MOVIE<span class="w3-hide-small">FLICKS</span></span>
+  </div>
+</div>
+<br>
 <div class="top">
 	<div class="columns">
 		<div class="column is-full featured_wrapper p-0">
@@ -11,21 +18,18 @@
 		</div>
 	</div>
 </div>
-<div class="container">
+
+<div class="">
 	<div class="columns is-multiline p-0 pt-6 last">
         <div class="column is-full">
-			<h2 class="has-text-white">Collection</h2>
+			<h2 class="has-text-white text-center">Collection</h2>
 		</div>
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-5 g-3">
             <% movies.forEach(function(m) { %>
-                <div class="col pad">
+                <div class="col pad container ">
                     <div class="">
-
                     <div class="">
-                        <image src= "<%= m.url %> "  width="260" height="280">
-            
-                 <h2><%= m.movieName %></h2>
-                <a href="/movies/<%= m._id %>"><button type="button" class="button">Details</button></a>
+                  <a href="/movies/<%= m._id %>"><image src= "<%= m.url %> "  width="240" height="270"></a>
               </div>
             </div>  
             </div>

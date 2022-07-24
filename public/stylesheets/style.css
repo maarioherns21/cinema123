@@ -1,13 +1,9 @@
 body {
-  padding: 50px;
-  font-size: .8125rem;
   font-family: "HM Sans Regular","HMSansHebrew-Regular","ãƒ’ãƒ©ã‚®ãƒŽè§’ã‚´ Pro W3","Hiragino Kaku Gothic Pro",Osaka,"ãƒ¡ã‚¤ãƒªã‚ª",Meiryo,"ï¼­ï¼³ ï¼°ã‚´ã‚·ãƒƒã‚¯","MS PGothic",sans-serif;
   font-weight: 400;
 }
 
-a {
-  color: #000000!important;
-}
+
 
 
 footer{
@@ -33,7 +29,7 @@ img {
 	-webkit-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
-  z-index: -1;
+      z-index: -1;
 }
 .container img:hover {
 	-webkit-transform: scale(1.1);
@@ -107,5 +103,36 @@ button {
 }
 
 .pad{
-  padding-top: 100px;
+	padding-top: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+.flex{
+	display: flex;
+    flex-wrap: wrap;
+}
+
+
+.fields{
+	line-height: 1.25;
+	font-size: 1rem;
+	font-family: "HM Sans Regular","HMSansHebrew-Regular","Hiragino Kaku Gothic Pro","MS PGothic",sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	border: 1px solid;
+	border-color: #d0d0d0;
+	height: 48px;
+	padding: 8px;
+	width: 40%;
+  }
+  .forms{
+	display: flex;
+	margin-top: 10%;
+	font-size: 14px;
+	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: center;
+	padding-left: 20;
+  }

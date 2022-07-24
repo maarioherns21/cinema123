@@ -1,15 +1,71 @@
-<%- include('../partials/Header') %> 
+<%- include('../partials/Header') %>
+<div class="forms">
+  <div class="container text-center">
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-
-
+    <p>Welcome</p>
     <form id="new-form" action="/movies" method="POST">
-        <input type="text" name="movieName" placeholder="Movie Name" >
-        <textarea name="movieInfo" placeholder="Movie info" ></textarea>
-        <input type="text" name="movieClass" placeholder="Movie Class" >
-        <input type="number" name="yearRelease" placeholder="year Release" >
-        <input type="number" name="runTime" placeholder="Run time" >
-        <input type="url" name="url" placeholder="add image url">
-        <input class="button" type="submit" value="Add Movie">
+      <p>
+        <label for=""></label>
+        <input
+          class="fields"
+          type="text"
+          name="movieName"
+          maxlength="100"
+          placeholder="Movie Name"
+        />
+      </p>
+      <p>
+        <label for=""></label>
+        <textarea
+          class="fields"
+          type="text"
+          name="movieInfo"
+          placeholder="Movie info"
+        ></textarea>
+      </p>
+      <p>
+        <label for=""></label>
+        <input
+          class="fields"
+          type="text"
+          name="movieClass"
+          maxlength="100"
+          placeholder="Rating"
+        />
+      </p>
+      <p>
+        <label for=""></label>
+        <input
+          class="fields"
+          type="number"
+          name="yearRelease"
+          maxlength="100"
+          placeholder="Year Release"
+        />
+      </p>
+      <p>
+        <label for=""></label>
+        <input
+          class="fields"
+          type="number"
+          name="runTime"
+          maxlength="100"
+          placeholder="Run Time"
+        />
+      </p>
+
+      <p>
+        <label for=""></label>
+        <input
+          class="fields"
+          type="url"
+          name="url"
+          maxlength="100"
+          placeholder="Add Url Image"
+        />
+      </p>
+      <input class="button" type="submit" value="Add Movie" />
     </form>
+  </div>
+</div>
 <%- include('../partials/Footer') %>
