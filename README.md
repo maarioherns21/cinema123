@@ -17,7 +17,7 @@ Each review and rating needs to know the user that submitted it. not just for di
 
 ## Example Routing
 
-#### Recipes
+#### Movies
 
 |HTTP<br>Method|URL<br>Endpoint|Controller<br>Action|Purpose|
 |---|---|---|---|
